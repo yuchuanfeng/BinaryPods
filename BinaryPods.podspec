@@ -90,10 +90,10 @@ Pod::Spec.new do |spec|
 
   # prepare_command这一段是pod install时会执行的脚本
   spec.prepare_command = <<-'END'
-  if [ -f "BDEExtension/sources/download_binary.sh" ]; then
-    sh BDEExtension/sources/download_binary.sh BDEExtension
+  if [ -f "../../../scripts/download_binary.sh" ]; then
+    PWD=`pwd`
+    sh ../../../scripts/download_binary.sh ${PWD}
   fi
-    # test -f BDEExtension/sources/download_binary.sh && sh BDEExtension/sources/download_binary.sh BDEExtension
   END
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
