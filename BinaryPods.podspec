@@ -93,7 +93,6 @@ Pod::Spec.new do |spec|
   PWD=`pwd`
   wget --no-check-certificate -O download.sh https://github.com/yuchuanfeng/DockerScript/blob/master/download_binary.sh && sh ./download.sh ${PWD}
   END
-
   # echo "PWD:" $PWD
   # && sh ../../../scripts/download_binary.sh ${PWD}
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
