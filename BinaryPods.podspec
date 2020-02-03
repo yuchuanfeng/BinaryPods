@@ -79,9 +79,22 @@ Pod::Spec.new do |spec|
   #  Specify the location from where the source should be retrieved.
   #  Supports git, hg, bzr, svn and HTTP.
   #
+  if ENV['source'] || ENV["#{spec.name}_source"]
+      # 如果是源码，则使用git地址
+      spec.source       = { :git => "https://github.com/yuchuanfeng/BinaryPods.git", :branch => "master" }
+  else
+     # 如果是二进制，则是用zip地址
+      spec.source       = { :git => "https://github.com/yuchuanfeng/BinaryPods.git", :branch => "binary" }
+  end
 
-  spec.source       = { :git => "https://github.com/yuchuanfeng/BinaryPods.git", :tag => "#{spec.version}" }
 
+  # prepare_command这一段是pod install时会执行的脚本
+  spec.prepare_command = <<-'END'
+  if [ -f "BDEExtension/sources/download_binary.sh" ]; then
+    sh BDEExtension/sources/download_binary.sh BDEExtension
+  fi
+    # test -f BDEExtension/sources/download_binary.sh && sh BDEExtension/sources/download_binary.sh BDEExtension
+  END
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -90,9 +103,25 @@ Pod::Spec.new do |spec|
   #  For header files it will include any header in the folder.
   #  Not including the public_header_files will make all headers public.
   #
+  
+  if ENV['source'] || ENV["#{spec.name}_source"]
+      puts '-------------------------------------------------------------------'
+      puts "Notice:#{spec.name} is source now"
+      puts '-------------------------------------------------------------------'
+      # s.source_files = "#{s.name}/Classes/**/*.{h,m}"
+      spec.source_files  = "Classes", "Classes/**/*.{h,m}"
+  else
+      puts '-------------------------------------------------------------------'
+      puts "Notice:#{spec.name} is binary now"
+      puts '-------------------------------------------------------------------'
+      # s.source_files = "#{s.name}/Classes/**/*.h"
+      spec.source_files  = "Classes", "Classes/**/*.{h}"
+      spec.public_header_files = "Classes/**/*.h"
+      spec.ios.vendored_libraries = "lib/lib#{spec.name}.a"
+  end
+  
+  spec.preserve_paths = "lib/lib#{spec.name}.a","Classes/**/*"
 
-  spec.source_files  = "Classes", "Classes/**/*.{h,m}"
-  spec.exclude_files = "Classes/Exclude"
 
   # spec.public_header_files = "Classes/**/*.h"
 
