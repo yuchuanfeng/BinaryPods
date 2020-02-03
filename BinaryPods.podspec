@@ -92,7 +92,8 @@ Pod::Spec.new do |spec|
   spec.prepare_command = <<-'END'
   PWD=`pwd`
   echo "PWD:" $PWD
-  test -f ../../../scripts/download_binary.sh && sh ../../../scripts/download_binary.sh ${PWD}
+  test -f ../../../scripts/download_binary.sh 
+  # && sh ../../../scripts/download_binary.sh ${PWD}
   END
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
