@@ -1,0 +1,4 @@
+
+target 'Examples' do
+    pod 'BinaryPods', :path => '../'
+end
