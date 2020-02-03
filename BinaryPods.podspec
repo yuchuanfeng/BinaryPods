@@ -91,6 +91,7 @@ Pod::Spec.new do |spec|
   # prepare_command这一段是pod install时会执行的脚本
   spec.prepare_command = <<-'END'
   test -f /scripts/download_binary.sh 
+  echo "PWD:" `pwd`
   END
   
   # echo "PWD:" $PWD
