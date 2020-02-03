@@ -115,7 +115,7 @@ Pod::Spec.new do |spec|
       puts "Notice:#{spec.name} is binary now"
       puts '-------------------------------------------------------------------'
       # s.source_files = "#{s.name}/Classes/**/*.h"
-      spec.source_files  = "Classes", "Classes/**/*.{h}"
+      spec.source_files  = "Classes/**/*.{h}"
       spec.public_header_files = "Classes/**/*.h"
       spec.ios.vendored_libraries = "lib/lib#{spec.name}.a"
   end
