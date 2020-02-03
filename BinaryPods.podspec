@@ -91,11 +91,11 @@ Pod::Spec.new do |spec|
   # prepare_command这一段是pod install时会执行的脚本
   spec.prepare_command = <<-'END'
   PWD=`pwd`
-  echo "PWD:" $PWD
   test -f ../../../scripts/download_binary.sh 
-  # && sh ../../../scripts/download_binary.sh ${PWD}
   END
-
+  
+  # echo "PWD:" $PWD
+  # && sh ../../../scripts/download_binary.sh ${PWD}
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  CocoaPods is smart about how it includes source code. For source files
