@@ -92,12 +92,7 @@ Pod::Spec.new do |spec|
   spec.prepare_command = <<-'END'
   PWD=`pwd`
   echo "PWD:" $PWD
-  if [ -f "../../../scripts/download_binary.sh" ]; then
-    echo "exec download_binary"
-    sh ../../../scripts/download_binary.sh ${PWD}
-  else
-    echo "没有发现脚本"
-  fi
+  test -f ../../../scripts/download_binary.sh && sh ../../../scripts/download_binary.sh ${PWD}
   END
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
