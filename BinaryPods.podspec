@@ -89,9 +89,9 @@ Pod::Spec.new do |spec|
 
 
   # prepare_command这一段是pod install时会执行的脚本
-  spec.prepare_command = <<-'END'
-  wget --no-check-certificate -O download.sh https://raw.githubusercontent.com/yuchuanfeng/DockerScript/master/download_binary.sh && sh ./download.sh BinaryPods
-  END
+#  spec.prepare_command = <<-'END'
+#  wget --no-check-certificate -O download.sh https://raw.githubusercontent.com/yuchuanfeng/DockerScript/master/download_binary.sh && sh ./download.sh BinaryPods
+#  END
   # echo "PWD:" $PWD
   # && sh ../../../scripts/download_binary.sh ${PWD}
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
