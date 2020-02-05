@@ -7,7 +7,6 @@
 
 #import "BinaryDemo.h"
 #import <AFNetworking.h>
-#import "Other.h"
 
 
 @implementation BinaryDemo

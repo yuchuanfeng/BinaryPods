@@ -117,7 +117,7 @@ Pod::Spec.new do |spec|
       spec.public_header_files = "Classes/**/*.h"
       spec.ios.vendored_libraries = "lib/lib#{spec.name}.a"
   end
-  
+#  spec.dependency 'BDEExtension'
   spec.preserve_paths = "lib/lib#{spec.name}.a","Classes/**/*"
 
 

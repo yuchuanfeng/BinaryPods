@@ -1,4 +1,7 @@
+source 'ssh://icode.baidu.com:8235/baidu/wenku/PrivatePods'
+source 'https://github.com/CocoaPods/Specs.git'
 
 target 'Examples' do
     pod 'BinaryPods', :path => '../'
+    pod 'BDEExtension',:git => 'ssh://icode.baidu.com:8235/baidu/Education-iOS/BDEExtension',:branch => 'dev_binary'
 end
