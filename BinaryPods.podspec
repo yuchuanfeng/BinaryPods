@@ -108,14 +108,25 @@ Pod::Spec.new do |spec|
       puts "Notice:#{spec.name} is source now"
       puts '-------------------------------------------------------------------'
       # s.source_files = "#{s.name}/Classes/**/*.{h,m}"
-      spec.source_files  = "Classes", "Classes/**/*.{h,m}"
+#      spec.source_files  = "Classes", "Classes/**/*.{h,m}"
+      spec.subspec 'Sub0' do |sub|
+          sub.source_files  = "Classes/Sub/*.{h,m}"
+      end
+      spec.subspec 'Sub1' do |sub1|
+          sub1.source_files  = "Classes/Sub1/*.{h,m}"
+      end
   else
       puts '-------------------------------------------------------------------'
       puts "Notice:#{spec.name} is binary now"
       puts '-------------------------------------------------------------------'
       # s.source_files = "#{s.name}/Classes/**/*.h"
-      spec.source_files  = "Classes/**/*.{h}"
-      spec.public_header_files = "Classes/**/*.h"
+      
+      spec.subspec 'Sub0' do |sub|
+          sub.source_files  = "Classes/Sub/*.{h}"
+      end
+      spec.subspec 'Sub1' do |sub1|
+          sub1.source_files  = "Classes/Sub1/*.{h}"
+      end
       spec.ios.vendored_libraries = "lib/lib#{spec.name}.a"
   end
 #  spec.dependency 'BDEExtension'
